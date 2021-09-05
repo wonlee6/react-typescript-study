@@ -1,0 +1,22 @@
+{
+  "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:@typescript-eslint/recommended", "plugin:prettier/recommended"],
+  "plugins": ["react", "@typescript-eslint", "prettier"],
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "detect"
+    }
+  },
+  "parser": "@typescript-eslint/parser",
+  "rules": {
+    "@typescript-eslint/ban-types": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-var-requires": 0,
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off",
+    "prettier/prettier": ["error", { "endOfLine": "auto" }]
+  }
+}
