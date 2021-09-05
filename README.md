@@ -98,10 +98,10 @@ export const errorHandler = async (error: Error | AxiosError, fn: () => Promise<
 ```ts
 const userData = async () => {
 
-  API.account // 예시
+  await API.account // 예시
       .getUserData()
       .then((res) => console.log(res))
-      .catch((err) => await ErrorHandler(err, userData) )
+      .catch(async (err) => await ErrorHandler(err, userData) )
 
 }
 ```
