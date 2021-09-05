@@ -6,7 +6,7 @@ yarn create react-app (project 명) --templete typescript
 
 ## TypeScript 기본
 
-useState 객체일 경우 초기 값을 설정해야 한다.
+useState 객체일 경우 초기 값을 설정해야 한다..
 
 ```ts
 interface FormDataModel {
