@@ -148,7 +148,7 @@ const Pagination = (props) => {
 
   const max_pages = Math.ceil(total_page / per_page)
 
-  const rendering_page_number = Array(10) // 10개의 배열을 만듬
+  const rendering_page_number = Array(10) // 10개의 요소를 가진 배열을 만듬
     .fill(null) // 10개의 배열 값은 null 
     .map((_, index) => { // index만 필요하기에 (_, index)
 
