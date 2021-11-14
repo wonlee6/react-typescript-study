@@ -63,3 +63,14 @@ api
   },
 }
 ```
+
+다른 예는
+
+```tsx
+api : sucesss 시
+  history.push('/경로', state)
+
+```
+
+state에 정보를 담아서 보낼 수 있다.  
+`console.log(location)` 확인해 보면 state안에 정보가 담아있는 것을 확인 가능

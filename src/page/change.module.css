@@ -1,0 +1,32 @@
+body {
+  background-color: gainsboro;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 700px;
+  max-height: 1400px;
+}
+
+.table_box {
+  width: 70%;
+  padding: 20px;
+  border: 1px solid gray;
+  border-radius: 4px;
+  margin-top: 15px;
+  background-color: #fff;
+}
+
+.table_title {
+  background-color: antiquewhite;
+}
+
+.center_tr {
+  text-align: center;
+}
+.center_tr > td {
+  background-color: rgba(180, 179, 179, 0.171);
+  height: 30px;
+}
