@@ -30,3 +30,7 @@ body {
   background-color: rgba(180, 179, 179, 0.171);
   height: 30px;
 }
+
+.img {
+  width: 150px;
+}

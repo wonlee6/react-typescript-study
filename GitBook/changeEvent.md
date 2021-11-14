@@ -227,3 +227,93 @@ return (
 ```
 
 ## file
+
+### File upload
+
+file, 파일을 선택 후 미리보기 까지 진행
+
+```tsx
+const [form, setForm] = useState({
+  name: '',
+  gender: 'N',
+  file: null as File | null, // File 담을 그릇
+  img_url: '', // 미리보기 할 그릇
+})
+
+const fileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  if (e.target.files?.length) {
+    const file = e.target.files[0] // 하나만 선택되도록 하기에 0번째 정보를 가져옴
+
+    const reader = new FileReader() // FileReader 함수 이용
+
+    reader.onload = (e) => {
+      if (e.target) {
+        if (typeof e.target.result === 'string') {
+          setForm({
+            ...form,
+            file,
+            img_url: e.target.result,
+          })
+        }
+      }
+    }
+    reader.readAsDataURL(file)
+  }
+}
+
+return (
+   <input
+     type='file'
+     id='file'
+     className='upload-hidden imageUpload'
+     accept='.png'
+     onChange={fileChange}
+   />
+   <img
+     className={styles.img}
+     src={form.img_url}
+     alt='img'
+     onError={() => setForm({ ...form, img_url: '' })}
+    />
+)
+```
+
+img src 에 base64정보를 입력  
+만약, fileChange를 모듈화작업을 한다면
+
+```tsx
+export const fileChange = (
+  e: React.ChangeEvent<HTMLInputElement>,
+  callback: (file: File, url: string) => void
+) => {
+  if (e.target.files?.length) {
+    const file = e.target.files[0]
+
+    const reader = new FileReader()
+
+    reader.onload = (e) => {
+      if (e.target) {
+        if (typeof e.target.result === 'string') {
+          callback(file, e.target.result)
+        }
+      }
+    }
+
+    reader.readAsDataURL(file)
+  }
+}
+
+// component
+const onChangeFile = (e: React.ChangeEvent<HTMLInputElement>) => {
+  fileChange(e, (file, base64) => {
+    setForm({
+      ...form,
+      file,
+      file_name: file.name,
+      logo_url: base64,
+    })
+  })
+}
+```
+
+이해가 안된다면 콘솔 로그를 통해 확인해보자

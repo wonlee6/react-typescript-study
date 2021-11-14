@@ -11,9 +11,10 @@ import styles from './change.module.css'
 
 const ChangeEventPage = () => {
   const [form, setForm] = useState({
-    id: '',
     name: '',
     gender: 'N',
+    file: null as File | null,
+    img_url: '',
   })
   const [userData, setUserData] = useState<Array<GetTodosListModel>>([])
 
@@ -48,6 +49,25 @@ const ChangeEventPage = () => {
     )
   }
 
+  const fileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files?.length) {
+      const file = e.target.files[0]
+      const reader = new FileReader()
+      reader.onload = (e) => {
+        if (e.target) {
+          if (typeof e.target.result === 'string') {
+            setForm({
+              ...form,
+              file: file,
+              img_url: e.target.result,
+            })
+          }
+        }
+      }
+      reader.readAsDataURL(file)
+    }
+  }
+  console.log(form)
   // checkbox function
   const onCheckedAll = useCallback(
     (checked) => {
@@ -78,7 +98,6 @@ const ChangeEventPage = () => {
     await API.todos
       .getUserData()
       .then((res) => {
-        console.log(res.data)
         const data = res.data
         setUserData(data)
       })
@@ -180,7 +199,21 @@ const ChangeEventPage = () => {
         />
         <label htmlFor='checked-2'>아이디</label>
       </div>
-
+      <div className={styles.img_box}>
+        <input
+          type='file'
+          id='file'
+          className='upload-hidden imageUpload'
+          accept='.png'
+          onChange={fileChange}
+        />
+        <img
+          className={styles.img}
+          src={form.img_url}
+          alt='img'
+          onError={() => setForm({ ...form, img_url: '' })}
+        />
+      </div>
       <div className={styles.table_box}>
         <table>
           <colgroup>
