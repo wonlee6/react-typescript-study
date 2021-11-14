@@ -53,7 +53,8 @@ const onChangeInput = (e: ChangeEvent<HTMLInputElement> | <HTMLSelectElement>) =
 useRef 사용 할 경우
 
 ```ts
-const input_value: React.MutableRefObject<HTMLInputElement | null> = useRef(null)
+const input_value: React.MutableRefObject<HTMLInputElement | null> =
+  useRef(null)
 ```
 
 ```ts
@@ -68,3 +69,41 @@ export interface GetPaperResponseDataModel {
 ```
 
 뒤에 export를 붙이면 다른곳에서도 사용 쌉가능
+
+## State
+
+자식 컴포넌트에서 부모 State를 변경할 시,
+
+```tsx
+// main
+const [is_show, setIsShow] = useState<boolean>(false)
+
+<li>
+ <TestSub is_show={setIsShow} show={is_show} />
+ {is_show === true ? (
+  <h3>boolean === true</h3>
+   ) : (
+  <h3>boolean === false</h3>
+  )}
+</li>
+
+// 자식 컴포넌트
+import React, { SetStateAction } from 'react'
+
+interface TestSubModel {
+  is_show: React.Dispatch<SetStateAction<boolean>>
+  show: boolean
+}
+const TestSub = (props: TestSubModel) => {
+  const { is_show, show } = props
+  return (
+    <>
+      <h2 onClick={() => is_show(!show)}>클릭 시 State 변경 됨</h2>
+    </>
+  )
+}
+
+export default TestSub
+```
+
+핵심은 `React.Dispatch<SetStateAction<>>`
