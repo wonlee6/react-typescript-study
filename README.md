@@ -11,4 +11,5 @@ yarn create react-app (project 명) --templete typescript
 - [Pagination](https://github.com/wonlee6/react-typescript-study/blob/main/GitBook/pagination.md)
 - [Query](https://github.com/wonlee6/react-typescript-study/blob/main/GitBook/query.md)
 - [errorHandler](https://github.com/wonlee6/react-typescript-study/blob/main/GitBook/errorHandler.md)
+- [ChangeEvent](https://github.com/wonlee6/react-typescript-study/blob/main/GitBook/changeEvent.md)
 - [function](https://github.com/wonlee6/react-typescript-study/blob/main/GitBook/function.md)
