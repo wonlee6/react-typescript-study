@@ -4,10 +4,9 @@
 
 예를 들면 학생 API 경우 구조
 
-service - api.ts
-| - student - model - (API 통신 데이터 타입 명시) get-student-response-data-model.ts
-|
--- student.ts
+service - api.ts   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| - student - model - (API 통신 데이터 타입 명시) get-student-response-data-model.ts   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| -- student.ts   
 page - student.tsx
 
 ### 기본적인 데이터 불러오기
