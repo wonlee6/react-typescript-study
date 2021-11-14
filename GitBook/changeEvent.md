@@ -1,6 +1,6 @@
 # ChangeEvent
 
-### 보통 onchage 함수를 통해 이벤트를 다루기도 하지만, HtmlElement에 직접적으로 수정도 가능하다.
+### 보통 onchage 함수를 통해 이벤트를 다루기도 하지만, HtmlElement에서 직접적으로 수정도 가능하다.
 
 ```tsx
 const [form, setForm] = usestate({
