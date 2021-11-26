@@ -4,6 +4,8 @@
 
 yarn create react-app (project 명) --templete typescript
 
+> 2021-11 react-router v6 적용
+
 ## 목차
 
 - [Basic](https://github.com/wonlee6/react-typescript-study/blob/main/GitBook/basic.md)

@@ -76,3 +76,47 @@ api : sucesss 시
 
 state에 정보를 담아서 보낼 수 있다.  
 `console.log(location)` 확인해 보면 state안에 정보가 담아있는 것을 확인 가능
+
+## React-router v6 이후 변경점
+
+```tsx
+<Router>
+  <Suspense fallback={<div>Loading</div>}>
+    <Switch>
+      <Route path='/' exact component={Main} />
+      <Route path='/api' exact component={Api} />
+      <Route path='/change_event' exact component={ChangeEvent} />
+    </Switch>
+  </Suspense>
+</Router>
+```
+
+switch 안에 route를 이용하여 만들었다면, v6부터는
+
+```tsx
+<BrowserRouter>
+  <Suspense fallback={<div>Loading</div>}>
+    <Routes>
+      <Route path='/' exact element={<Main />} />
+      <Route path='/api' element={<Api />} />
+      <Route path='/change_event' element={<ChangeEvent />} />
+    </Routes>
+  </Suspense>
+</BrowserRouter>
+```
+
+위와 같은 코드로 변경되었다
+
+### 또 다른 변경사항
+
+```tsx
+const history = useHistory() // v5
+
+const navigator = useNavigate() // v6
+
+history.push('/') // v5
+
+navigator('/') // v6
+```
+
+history가 useNavigate 로 변경 되었다.
